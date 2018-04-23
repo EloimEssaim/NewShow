@@ -1,15 +1,20 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import CommonHeader from '@/components/CommonHeader'
 
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
-      name: 'Home',
-      component: CommonHeader
+      name: 'Timeline',
+      component: resolve => require(['@/pages/timeline'], resolve)
+    },
+    {
+      path: '/detail',
+      name: 'Detail',
+      component: resolve => require(['@/pages/detail'], resolve)
     }
   ]
 })
